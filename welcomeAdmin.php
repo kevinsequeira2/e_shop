@@ -1,6 +1,8 @@
 <?php 
-    session_start();
     require "database.php";
+    require "l_admin.php";
+    session_start();
+    
     if(isset($_SESSION['id'])){
         $sentence = $bd->query("SELECT id,user,password FROM users where id='$_SESSION[id]';");
         $users = $sentence->fetchAll(PDO::FETCH_OBJ);
@@ -26,6 +28,12 @@
         <?php
         }
         ?>
+    <select name="category" id="category">
+        <?php foreach ($listenLogic->read() as $data2){?>
+        <option value=""><?php echo $data2->name ?></option>
+        <?php } ?>
+    </select>
+        
 
 </body>
 </html>
