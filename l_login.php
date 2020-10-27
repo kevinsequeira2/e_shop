@@ -10,11 +10,11 @@
              $user2=$data->user;
              $password2=$data->password;
              if($user==$user2 && $password==$password2){
-                $_SESSION['$id'];
-                header("Location: index.php");
+                $_SESSION['id']=$id;
+                header("Location: welcome.php");
              }
              else{
-                 echo "user incorrect";
+                header("Location: index.php");
              }
 
     }
