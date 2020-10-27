@@ -1,3 +1,5 @@
+<header>Error usuario no existe <br> <?php require "partials/header.php" ?> </header>
+
 <?php 
     session_start();
     require "database.php";
