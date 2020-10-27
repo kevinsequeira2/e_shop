@@ -11,9 +11,13 @@
              $id=$data->id;
              $user2=$data->user;
              $password2=$data->password;
-             if($user==$user2 && $password==$password2){
+             if($user==$user2 && $password==$password2 && $id!=1){
                 $_SESSION['id']=$id;
                 header("Location: welcome.php");
+             }
+             else if($user==$user2 && $password==$password2 && $id==1){
+               $_SESSION['id']=$id;
+               header("Location: welcomeAdmin.php");
              }
              else{
                 header("Location: index.php");
