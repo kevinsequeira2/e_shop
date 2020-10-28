@@ -8,6 +8,7 @@
         $users = $sentence->fetchAll(PDO::FETCH_OBJ);
 
     }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +29,24 @@
         <?php
         }
         ?>
-    <select name="category" id="category">
-        <?php foreach ($listenLogic->read() as $data2){?>
-        <option value=""><?php echo $data2->name ?></option>
+    <select id="firstText" name="category" id="category">
+        <option value="0">seleccione</option>
+        <?php 
+            $sentence2 = $bd->query("SELECT * FROM category;");
+            $category = $sentence2->fetchAll(PDO::FETCH_OBJ);
+            foreach ($category as $data2){
+        ?>
+        <option value="<?php echo $data2->id; ?>"><?php echo $data2->name; ?></option>
         <?php } ?>
     </select>
+
+    <table id="firstText">
+            <th>Products</th>
+            <th>Id</th>
+            <th>Name</th>
+            
+
+    </table>
         
 
 </body>
