@@ -41,13 +41,12 @@
             <?php 
                 foreach ($category as $data2){
             ?>
-            <option value="<?php echo $data2->id; ?>"><?php echo $data2->name; ?></option>
-            <?php } ?>
+            <option value="<?php echo $data2->id; ?>"><?php echo $data2->name; ?>
+         </option>
+         <?php } ?>
         </select>
-        <button type="submit">viewProducts</button>
-        <br><a href="#">Delete</a><br>
-        <a href="#">Edit</a>
-
+        <button type="submit">viewProducts</button> 
+        <button><a href="editViewAdmin.php">Aministrator</a></button>        
         </form>
         <br>
         <label><b>List products</b> </label>
@@ -55,6 +54,8 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                     <?php 
 
@@ -63,6 +64,8 @@
                     <tr>
                         <td><?php echo $data3->id; ?></td>
                         <td><?php echo $data3->name; ?></td>
+                        <td><span><a href="#">EDIT</a></span></td>
+                        <td><span><a href="#">DELETE</a></span></td>
                     </tr>
                     
                     <?php } ?>
