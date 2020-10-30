@@ -8,6 +8,10 @@
         $users = $sentence->fetchAll(PDO::FETCH_OBJ);
 
     }
+    $id_category=$_POST['id_category'];
+    $sentence3 = $bd->query("SELECT id,name FROM products where id_category='$id_category';");
+    $products = $sentence3->fetchAll(PDO::FETCH_OBJ);
+
     
 ?>
 <!DOCTYPE html>
@@ -29,25 +33,45 @@
         <?php
         }
         ?>
-    <select id="firstText" name="category" id="category">
-        <option value="0">seleccione</option>
-        <?php 
-            $sentence2 = $bd->query("SELECT * FROM category;");
-            $category = $sentence2->fetchAll(PDO::FETCH_OBJ);
-            foreach ($category as $data2){
-        ?>
-        <option value="<?php echo $data2->id; ?>"><?php echo $data2->name; ?></option>
-        <?php } ?>
-    </select>
-
-    <table id="firstText">
-            <th>Products</th>
-            <th>Id</th>
-            <th>Name</th>
-            
-
-    </table>
+    <center>
         
+        <form  method="POST" action="welcomeAdmin.php">
+        <h2><b>Categories</b></h2>
+        <select  id="firstText" name="id_category">
+            <?php 
+                foreach ($category as $data2){
+            ?>
+            <option value="<?php echo $data2->id; ?>"><?php echo $data2->name; ?></option>
+            <?php } ?>
+        </select>
+        <button type="submit">viewProducts</button>
+        <br><a href="#">Delete</a><br>
+        <a href="#">Edit</a>
+
+        </form>
+        <br>
+        <label><b>List products</b> </label>
+        <table id="firstText">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                    <?php 
+
+                        foreach ($products as $data3){
+                    ?>
+                    <tr>
+                        <td><?php echo $data3->id; ?></td>
+                        <td><?php echo $data3->name; ?></td>
+                    </tr>
+                    
+                    <?php } ?>
+                    
+
+            </table>
+    
+    </center>
+    
 
 </body>
 </html>
