@@ -60,8 +60,6 @@
                         <th>Stock</th>
                         <th>Price</th>
                         <th>Image</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
                     </tr>
                     <?php 
 
@@ -74,9 +72,7 @@
                         <th><textarea name="" id="" cols="20" rows="3"> <?php echo $data3->description; ?></textarea></th>
                         <th><?php echo $data3->Stock; ?></th>
                         <th><?php echo $data3->Precio; ?></th>
-                        <th><?php echo $data3->image; ?></th>
-                        <td><span><a href="#">EDIT</a></span></td>
-                        <td><span><a href="#">DELETE</a></span></td>
+                        <th><img src="<?php echo $data3->image; ?>" width="100px" height="100px"></th>
                     </tr>
                     
                     <?php } ?>
