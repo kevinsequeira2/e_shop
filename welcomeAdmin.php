@@ -1,4 +1,5 @@
 <?php 
+    error_reporting(E_ERROR);
     require "database.php";
     require "l_admin.php";
     session_start();
@@ -8,11 +9,11 @@
         $users = $sentence->fetchAll(PDO::FETCH_OBJ);
 
     }
+    
     $id_category=$_POST['id_category'];
-    $sentence3 = $bd->query("SELECT id,name FROM products where id_category='$id_category';");
+    $sentence3 = $bd->query("SELECT * FROM products where id_category='$id_category';");
     $products = $sentence3->fetchAll(PDO::FETCH_OBJ);
 
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +55,11 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                        <th>SKU</th>
+                        <th>Description</th>
+                        <th>Stock</th>
+                        <th>Price</th>
+                        <th>Image</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -64,6 +70,11 @@
                     <tr>
                         <td><?php echo $data3->id; ?></td>
                         <td><?php echo $data3->name; ?></td>
+                        <th><?php echo $data3->SKU; ?></th>
+                        <th><textarea name="" id="" cols="20" rows="3"> <?php echo $data3->description; ?></textarea></th>
+                        <th><?php echo $data3->Stock; ?></th>
+                        <th><?php echo $data3->Precio; ?></th>
+                        <th><?php echo $data3->image; ?></th>
                         <td><span><a href="#">EDIT</a></span></td>
                         <td><span><a href="#">DELETE</a></span></td>
                     </tr>
