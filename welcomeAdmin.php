@@ -79,6 +79,7 @@
                     
 
             </table>
+            <button id="firstText" ><a href="editViewProducts.php">AdministratorProducts</a></button>
     
     </center>
     
