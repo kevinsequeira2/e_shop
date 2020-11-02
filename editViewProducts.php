@@ -54,7 +54,7 @@
         <button id="firstText"><b><a href="welcomeAdmin.php">Ready</a></b></button>
     </center>
     <center>
-        <h3>Insert category:</h3>
+        <h3>Insert Products:</h3>
             <form method="POST" enctype="multipart/form-data" action="i_product.php">
                 <table id="firstText">
                     <tr>
@@ -67,7 +67,7 @@
                     </tr>
                     <tr>
                         <td>Description: </td>
-                        <td><textarea name="txtdescription" cols="20" rows="5"></textarea></td>
+                        <td><input type="text" name="txtdescription" id=""></td>
                     </tr>
                     <tr>
                         <td>Stock: </td>
@@ -96,7 +96,7 @@
                     <input type="hidden" name="oculto" value="1">
                     <tr>
                         <td><input type="reset" name=""></td>
-                        <td><input type="submit" value="Insert category"></td>
+                        <td><input type="submit" value="Insert product"></td>
                     </tr>
                     
                 </table>

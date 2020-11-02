@@ -6,6 +6,7 @@
 	include 'database.php';
 	$category = $_POST['txtname'];
 
+
 	$sentence = $bd->prepare("INSERT INTO category(name) VALUES (?);");
 	$result = $sentence->execute([$category]);
 
