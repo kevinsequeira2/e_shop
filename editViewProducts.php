@@ -46,7 +46,7 @@
                 <td><?php echo $pro->Precio; ?></td>
                 <td><img src="<?php echo $pro->image; ?>" width="100px" height="100px"></td>
                 <td><a href="e_product.php?id=<?php echo $pro->id; ?>">EDIT</a></td>
-                <td><a href="d_category.php?id=<?php echo $pro->id; ?>">DELETE</a></td>
+                <td><a href="d_product.php?id=<?php echo $pro->id; ?>">DELETE</a></td>
             </tr>
                 <?php } ?>
         </table>
