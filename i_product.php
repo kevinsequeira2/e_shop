@@ -11,7 +11,6 @@
     $price = $_POST['txtprice'];
     $id_category=$_POST['id_category'];
     $foto=$_FILES["txtimage"]["name"];
-    //$ruta=$_FILES["txtimage"]["tmp_name"];
     $destino="assets/img/".$foto;
     
 
