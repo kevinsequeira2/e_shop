@@ -5,17 +5,18 @@
     require "database.php";
     $user=$_POST['user'];
     $password=$_POST['password'];
-    $sentence = $bd->query("SELECT id,user,password FROM users where user='$user';");
+    $sentence = $bd->query("SELECT * FROM users where email='$user';");
     $users = $sentence->fetchAll(PDO::FETCH_OBJ);
     foreach ($users as $data) {
              $id=$data->id;
-             $user2=$data->user;
+             $type=$data->type;
+             $user2=$data->email;
              $password2=$data->password;
-             if($user==$user2 && $password==$password2 && $id!=1){
+             if($user==$user2 && $password==$password2 && $type=='client'){
                 $_SESSION['id']=$id;
                 header("Location: welcome.php");
              }
-             else if($user==$user2 && $password==$password2 && $id==1){
+             else if($user==$user2 && $password==$password2 && $type=='admin'){
                $_SESSION['id']=$id;
                header("Location: welcomeAdmin.php");
              }

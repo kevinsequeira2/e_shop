@@ -2,7 +2,7 @@
     session_start();
     require "database.php";
     if(isset($_SESSION['id'])){
-        $sentence = $bd->query("SELECT id,user,password FROM users where id='$_SESSION[id]';");
+        $sentence = $bd->query("SELECT * FROM users where id='$_SESSION[id]';");
         $users = $sentence->fetchAll(PDO::FETCH_OBJ);
 
     }
@@ -23,6 +23,7 @@
 
         ?>  
         <h2 id="firstText"><?php echo $data->user; ?></h2>  
+        <h2 id="firstText"><?php echo $data->lastName; ?></h2>  
         <?php
         }
         ?>
