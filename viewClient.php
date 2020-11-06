@@ -36,26 +36,27 @@
         <label><b>List products</b> </label>
         <table id="firstText">
                 <tr>
-                    <th>Id</th>
                     <th>Name</th>
                     <th>SKU</th>
                     <th>Description</th>
                     <th>Stock</th>
                     <th>Price</th>
                     <th>Image</th>
+                    <th>Quantity</th>
                 </tr>
                 <?php 
 
                     foreach ($products as $data3){
                 ?>
                 <tr>
-                    <td><?php echo $data3->id; ?></td>
                     <td><?php echo $data3->name; ?></td>
                     <th><?php echo $data3->SKU; ?></th>
                     <th><textarea name="" id="" cols="20" rows="3"> <?php echo $data3->description; ?></textarea></th>
                     <th><?php echo $data3->Stock; ?></th>
                     <th><?php echo $data3->Precio; ?></th>
                     <th><img src="<?php echo $data3->image; ?>" width="100px" height="100px"></th>
+                    <th><input type="number" name="quantity"></th>
+                    <th><button type="submit">BUY</button></th>
                 </tr>
                 
                 <?php } ?>
