@@ -12,7 +12,7 @@
     <h5 id="firstText"><?php require "partials/header.php"; ?></h5>
     <h1 id="firstText">Login</h1>
     <form  method="POST" action="l_login.php">
-        <input id="firstText" type="text" name="user" placeholder="insert your user">
+        <input id="firstText" type="text" name="user" placeholder="insert your email">
         <input id="firstText" type="password" name="password" placeholder="insert your password">
         <input id="firstText" type="submit" name="send">
     
