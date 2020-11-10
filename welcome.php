@@ -34,6 +34,7 @@
         }
         ?>
          <center>
+        <button><a href="view_car.php">GoCar</a></button>
         <h1 id="firstText">Buys</h1>
 
         <form  method="POST" action="welcome.php">

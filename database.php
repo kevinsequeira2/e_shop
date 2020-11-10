@@ -1,6 +1,6 @@
 <?php  
-	$password = '1234';
-	$user = 'kevin';
+	$password = '';
+	$user = 'root';
 	$database= 'e_shop';
 
 	try {
