@@ -44,7 +44,7 @@
                     <th><?php echo $data3->Stock; ?></th>
                     <th><?php echo $data3->Precio; ?></th>
                     <th><img src="<?php echo $data3->image; ?>" width="100px" height="100px"></th>
-                    <th><button><a href="viewClient.php?id=<?php echo $data3->id; ?>">BUY</a></button></th>
+                    <th><button><a href="buy_product.php?id=<?php echo $data3->id; ?>">BUY</a></button></th>
                 </tr>
                 
                 <?php } ?>
