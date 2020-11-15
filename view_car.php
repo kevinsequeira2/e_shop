@@ -61,7 +61,7 @@
         </footer>
         <br>
         <footer>
-            <button><a href="order.php">checkout</a></button>
+            <button><a href="buy_all.php">checkout</a></button>
         </footer>
     </center>
 </body>
