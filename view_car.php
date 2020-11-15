@@ -46,6 +46,7 @@
                     <th><?php echo $data3->Precio; ?></th>
                     <th><img src="<?php echo $data3->image; ?>" width="100px" height="100px"></th>
                     <th><button><a href="buy_product.php?id=<?php echo $data3->id; ?>">BUY</a></button></th>
+                    <th><button><a href="d_car.php?id=<?php echo $data3->id; ?>">Delete</a></button></th>
                 </tr>
                 
                 <?php } ?>
@@ -57,6 +58,10 @@
     <center>
         <footer>
             <button><a href="welcome.php">BACK</a></button>
+        </footer>
+        <br>
+        <footer>
+            <button><a href="order.php">checkout</a></button>
         </footer>
     </center>
 </body>
