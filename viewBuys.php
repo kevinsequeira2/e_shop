@@ -14,16 +14,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Buys</title>
 </head>
 <body>
 <center>
-    <table>
+    <table id="firstText">
         <tr>
-            <td>Name</td>
-            <td>Description</td>
-            <td>Quantity</td>
-            <td>Date</td>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Date</th>
 
         </tr>
         <?php foreach ($buy as $data) {?>
@@ -36,6 +37,9 @@
         </tr>
         <?php } ?>
     </table>
+</center>
+<center>
+    <button id="firstText"><a href="welcome.php">Back welcome</a></button>
 </center>
     
 </body>
