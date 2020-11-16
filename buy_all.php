@@ -14,10 +14,6 @@
     INNER JOIN products on car.id_product=products.id and car.id_client=?;");
     $result1 = $sentence1->execute([$code,$id_client]);
 
-    $sentence3 = $bd->prepare("DELETE FROM car where id_client = ?;");
-    $result3 = $sentence3->execute([$id_client]);
-
-
 	if ($result === TRUE) {
 		
 		header('Location: order.php');
