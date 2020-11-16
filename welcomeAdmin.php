@@ -14,6 +14,12 @@
     $sentence3 = $bd->query("SELECT * FROM products where id_category='$id_category';");
     $products = $sentence3->fetchAll(PDO::FETCH_OBJ);
 
+
+    $send = $bd->query("SELECT count(distinct purchase.id_client) as client_buy,
+    sum(buy.quantity) as total_product
+    ,sum(purchase.total) as total_cash from purchase INNER JOIN buy;");
+    $buy = $send->fetchAll(PDO::FETCH_OBJ);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +30,7 @@
     <title>welcome</title>
 </head>
 <body>
+    <h3><button id="firstText"><a href="logout.php">LOGOUT</a></button></h3>
     <h5 id="firstText"><?php require "partials/header.php"; ?></h5>
     <h1 id="firstText">Welcome to admin E-SHOP</h1>
     <?php
@@ -34,6 +41,22 @@
         <?php
         }
         ?>
+    <center>
+        <table id="firstText">
+            <tr>
+                <th>Total client buy---</th>
+                <th>Total cash---</th>
+                <th>Total Products buy</th>
+            </tr>
+            <?php foreach ($buy as $key) {?>
+            <tr>
+                <th><?php echo $key->client_buy ?></th>
+                <th><?php echo $key->total_product ?></th>
+                <th><?php echo $key->total_cash ?></th>
+            </tr>
+            <?php } ?>
+        </table>
+    </center>
     <center>
         
         <form  method="POST" action="welcomeAdmin.php">

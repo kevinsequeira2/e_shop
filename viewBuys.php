@@ -3,9 +3,7 @@
     session_start();
     require "database.php";
     $id_client=$_SESSION['id'];
-    $sentence = $bd->query("SELECT p.name,p.description,b.quantity,b.date FROM products as p
-    INNER JOIN buy as b on b.id_product=p.id
-    INNER JOIN buy as bu on bu.id_client=$id_client;");
+    $sentence = $bd->query("SELECT *FROM purchase WHERE id_client = $id_client;");
     $buy = $sentence->fetchAll(PDO::FETCH_OBJ);;
 
 ?>
@@ -21,25 +19,27 @@
 <center>
     <table id="firstText">
         <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Quantity</th>
+            <th>id</th>
+            <th>Code</th>
             <th>Date</th>
+            <th>Total</th>
+            <th>VIEW BUY</th>
 
         </tr>
         <?php foreach ($buy as $data) {?>
         <tr>
-            <td><?php echo $data->name; ?></td>
-            <td><?php echo $data->description; ?></td>
-            <td><?php echo $data->quantity; ?></td>
-            <td><?php echo $data->date; ?></td>
+            <td><?php echo $data->id; ?></td>
+            <td><?php echo $data->code; ?></td>
+            <td>|<?php echo $data->date; ?>|</td>
+            <td><?php echo $data->total; ?></td>
+            <td><button><a href="especifitView.php">GO</a></button></td>
 
         </tr>
         <?php } ?>
     </table>
 </center>
 <center>
-    <button id="firstText"><a href="welcome.php">Back welcome</a></button>
+    <button id="firstText"><a href="welcome.php?id=<?php echo $data->code; ?>">Back welcome</a></button>
 </center>
     
 </body>

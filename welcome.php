@@ -7,11 +7,18 @@
         $sentence = $bd->query("SELECT * FROM users where id='$_SESSION[id]';");
         $users = $sentence->fetchAll(PDO::FETCH_OBJ);
 
+        $id_client=$_SESSION['id'];
+        $send = $bd->query("SELECT purchase.total as total,sum(buy.quantity) as cash FROM purchase
+        INNER JOIN buy
+        on buy.id_client=purchase.id_client and purchase.id_client=$id_client;");
+        $buy = $send->fetchAll(PDO::FETCH_OBJ);
     }
-
+    
     $id_category=$_POST['id_category'];
     $sentence3 = $bd->query("SELECT * FROM products where id_category='$id_category';");
     $products = $sentence3->fetchAll(PDO::FETCH_OBJ);
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +29,7 @@
     <title>welcome</title>
 </head>
 <body>
+    <h3><button id="firstText"><a href="logout.php">LOGOUT</a></button></h3>
     <h5 id="firstText"><?php require "partials/header.php"; ?></h5>
     <h1 id="firstText">Welcome to E-SHOP</h1>
     <?php
@@ -34,6 +42,22 @@
         }
         ?>
          <center>
+         <center>
+            <h2>Estadistic</h2>
+            <table id="firstText">
+                <tr>
+                    <th>Total Products Adquired-----</th>
+                    <th>Total cash</th>
+                </tr>
+                <?php foreach ($buy as $data5) {?>
+                <tr>
+                    <td><?php echo $data5->cash; ?></td>
+                    <td><?php echo $data5->total; ?></td>
+                </tr>
+                <?php } ?>
+            </table>
+        </center>
+        <br>
         <button id="firstText"><a href="view_car.php">GoCar</a></button>
         <button id="firstText"><a href="viewBuys.php">ViewBuys</a></button>
         <h1 id="firstText">Buys</h1>
