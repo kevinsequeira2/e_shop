@@ -4,16 +4,16 @@
 
     include 'database.php';
 
-
-	$sentence = $bd->prepare("INSERT INTO buy(id_client,id_product) SELECT id_client,id_product FROM car
+    $code=random_int(100,100000);
+	$sentence = $bd->prepare("INSERT INTO buy(id_client,id_product,quantity,code) SELECT id_client,id_product,quantity,? FROM car
     WHERE id_client = ?;");
-    $result = $sentence->execute([$id_client]);
+    $result = $sentence->execute([$code,$id_client]);
 
-    $sentence2 = $bd->prepare("UPDATE products INNER JOIN car on car.id_product=products.id 
-    SET products.Stock = products.Stock-1 
-    WHERE car.id_client = ?;");
-    $result2 = $sentence2->execute([$id_client]);
-    
+    $sentence1 = $bd->prepare("INSERT INTO purchase(id_client,code,date,total) 
+    SELECT id_client,?,NOW(),sum(products.Precio*car.quantity) FROM car
+    INNER JOIN products on car.id_product=products.id and car.id_client=?;");
+    $result1 = $sentence1->execute([$code,$id_client]);
+
     $sentence3 = $bd->prepare("DELETE FROM car where id_client = ?;");
     $result3 = $sentence3->execute([$id_client]);
 

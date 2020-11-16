@@ -2,7 +2,7 @@
     require "database.php";
     session_start();
     $id_client = $_SESSION['id'];
-    $sentence = $bd->query("SELECT p.id,p.name,p.id_category,p.description,p.Precio,p.Stock,p.SKU,p.image from products as p
+    $sentence = $bd->query("SELECT c.quantity,p.id,p.name,p.id_category,p.description,p.Precio,p.Stock,p.SKU,p.image from products as p
     INNER JOIN car as c 
     on p.id = c.id_product
     INNER JOIN users as u
@@ -30,6 +30,8 @@
                     <th>SKU</th>
                     <th>Description</th>
                     <th>Stock</th>
+                    <th>Quantity</th>
+                    <th>|||+|||</th>
                     <th>Price</th>
                     <th>Image</th>
                 </tr>
@@ -43,9 +45,11 @@
                     <th><?php echo $data3->SKU; ?></th>
                     <th><textarea name="" id="" cols="20" rows="3"> <?php echo $data3->description; ?></textarea></th>
                     <th><?php echo $data3->Stock; ?></th>
+                    <th><?php echo $data3->quantity; ?></th>
+                    <th><button><a href="quantity.php?id=<?php echo $data3->id; ?>">+</a></button></th>
                     <th><?php echo $data3->Precio; ?></th>
                     <th><img src="<?php echo $data3->image; ?>" width="100px" height="100px"></th>
-                    <th><button><a href="buy_product.php?id=<?php echo $data3->id; ?>">BUY</a></button></th>
+                    <!--<th><button><a href="buy_product.php?id=<?php echo $data3->id; ?>">BUY</a></button></th>-->
                     <th><button><a href="d_car.php?id=<?php echo $data3->id; ?>">Delete</a></button></th>
                 </tr>
                 
