@@ -5,7 +5,7 @@
     include 'database.php';
 
     $code=random_int(100,100000);
-	$sentence = $bd->prepare("INSERT INTO buy(id_client,id_product,quantity,code) SELECT id_client,id_product,quantity,? FROM car
+	$sentence = $bd->prepare("INSERT INTO buy(id_client,id_product,quantity,code,date) SELECT id_client,id_product,quantity,?,now() FROM car
     WHERE id_client = ?;");
     $result = $sentence->execute([$code,$id_client]);
 

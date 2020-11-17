@@ -32,7 +32,7 @@
             <td><?php echo $data->code; ?></td>
             <td>|<?php echo $data->date; ?>|</td>
             <td><?php echo $data->total; ?></td>
-            <td><button><a href="especifitView.php">GO</a></button></td>
+            <td><button><a href="especifitView.php?id=<?php echo $data->code; ?>">GO</a></button></td>
 
         </tr>
         <?php } ?>

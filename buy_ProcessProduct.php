@@ -7,8 +7,8 @@
     $quality = $_POST['txt2quality'];
     $date = date('Y-m-d H:i:s');
 
-	$sentence = $bd->prepare("INSERT INTO buy (id_client,id_product,date,quantity) VALUES (?,?,?,?) ;");
-    $result = $sentence->execute([$id_client,$id2,$date,$quality]);
+	$sentence = $bd->prepare("INSERT INTO buy (id_client,id_product,date,quantity) VALUES (?,?,now(),?) ;");
+    $result = $sentence->execute([$id_client,$id2,$quality]);
 
     $sentence2 = $bd->query("SELECT * FROM products where id = $id2;");
     $result2 = $sentence2->fetchAll(PDO::FETCH_OBJ);;

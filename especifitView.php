@@ -2,12 +2,15 @@
     session_start();
     $id_client = $_SESSION['id'];
     include 'database.php';
-
+    if (!isset($_GET['id'])) {
+		header('Location: especifitView.php');
+	}
+    $id_especifit= $_GET['id'];
     $sentence = $bd->query("SELECT buy.date,(buy.quantity*products.Precio) as total,products.description,products.Precio FROM buy 
     INNER JOIN products
     on buy.id_product=products.id and buy.id_client=$id_client
     INNER JOIN purchase
-    on purchase.id_client = buy.id_client;");
+    on purchase.id_client = buy.id_client and purchase.code=buy.code and buy.code=$id_especifit;");
     $buy = $sentence->fetchAll(PDO::FETCH_OBJ);
 
 ?>

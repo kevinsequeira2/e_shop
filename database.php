@@ -1,11 +1,11 @@
 <?php  
-	$password = '';
-	$user = 'root';
+	$password = '12345';
+	$user = 'kevin';
 	$database= 'e_shop';
 
 	try {
 		$bd = new PDO(
-			'mysql:host=localhost;
+			'mysql:host=localhost:3306;
 			dbname='.$database,
 			$user,
 			$password,

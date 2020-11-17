@@ -14,7 +14,6 @@
     $sentence3 = $bd->query("SELECT * FROM products where id_category='$id_category';");
     $products = $sentence3->fetchAll(PDO::FETCH_OBJ);
 
-
     $send = $bd->query("SELECT count(distinct purchase.id_client) as client_buy,
     sum(buy.quantity) as total_product
     ,sum(purchase.total) as total_cash from purchase INNER JOIN buy;");
