@@ -1,6 +1,7 @@
 <?php
     require "database.php";
     session_start();
+    //in this part select especifits products for show a client
     $id_client = $_SESSION['id'];
     $sentence = $bd->query("SELECT c.quantity,p.id,p.name,p.id_category,p.description,p.Precio,p.Stock,p.SKU,p.image from products as p
     INNER JOIN car as c 
@@ -21,7 +22,7 @@
 <body>
 <center>
         <h1 id="firstText">Car</h1>
-
+        <!--list of especifits products for show a client-->
         <label><b>List products</b> </label>
         <table id="firstText">
                 <tr>

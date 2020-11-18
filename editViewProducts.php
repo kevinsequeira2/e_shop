@@ -1,9 +1,9 @@
 <?php  
 	require 'database.php';
-    
+    //here select products for show
     $sentence2 = $bd->query("SELECT * FROM products;");
     $product2 = $sentence2->fetchAll(PDO::FETCH_OBJ);
-    
+    //here select category for show
     $sentence3 = $bd->query("SELECT * FROM category;");
     $category = $sentence3->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -18,7 +18,7 @@
 <body>
 
 	<center>
-        
+        <!--this table show products-->
         <table id="firstText">
         <h1>Products</h1>
             <tr>
@@ -54,6 +54,7 @@
         <button id="firstText"><b><a href="welcomeAdmin.php">Ready</a></b></button>
     </center>
     <center>
+        <!--this form insert products in the database-->
         <h3>Insert Products:</h3>
             <form method="POST" enctype="multipart/form-data" action="i_product.php">
                 <table id="firstText">

@@ -5,6 +5,7 @@
 	}
 
 	include 'database.php';
+	//data for update products
 	$id2 = $_POST['id2'];
 	$name = $_POST['txt2name'];
     $SKU = $_POST['txt2SKU'];
@@ -13,7 +14,7 @@
     $price = $_POST['txt2price'];
     $foto=$_FILES["txt2image"]["name"];
     $destino="assets/img/".$foto;
-
+	//in this logic part is updated the products
 	$sentence = $bd->prepare("UPDATE products SET name = ?, SKU=?, description=?, Stock=?, Precio=?, image=? WHERE id = ?;");
 	$result = $sentence->execute([$name,$SKU,$description,$stock,$price,$destino,$id2]);
 

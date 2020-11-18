@@ -4,7 +4,8 @@
     include 'database.php';
     if (!isset($_GET['id'])) {
 		header('Location: especifitView.php');
-	}
+    }
+    //with this querry you can get a especifit product
     $id_especifit= $_GET['id'];
     $sentence = $bd->query("SELECT buy.date,(buy.quantity*products.Precio) as total,products.description,products.Precio FROM buy 
     INNER JOIN products
@@ -24,6 +25,7 @@
 </head>
 <body>
     <center>
+    <!--this form show especifits products-->
         <table id="firstText">
             <tr>
                 <th>Date</th>

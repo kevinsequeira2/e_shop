@@ -1,4 +1,5 @@
 <?php  
+	//init session for get id
 	session_start();
 	if (!isset($_GET['id'])) {
 		header('Location: view_car.php');
@@ -6,7 +7,7 @@
 	
 	include 'database.php';
 	$id = $_GET['id'];
-
+	//here select products to show products in the visual part
 	$sentence = $bd->prepare("SELECT * FROM products WHERE id = ?;");
 	$sentence->execute([$id]);
 	$products = $sentence->fetch(PDO::FETCH_OBJ);
@@ -22,6 +23,7 @@
 <body>
 	<center>
 		<h3 id="firstText">Buy:</h3>
+		<!--in this part is send all data of produts-->
 		<form method="POST" action="buy_ProcessProduct.php">
 			<table id="firstText">
 				<tr>

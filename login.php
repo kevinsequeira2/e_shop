@@ -9,6 +9,7 @@
     <title>Login</title>
 </head>
 <body>
+    <!--with this form the user can login-->
     <h5 id="firstText"><?php require "partials/header.php"; ?></h5>
     <h1 id="firstText">Login</h1>
     <form  method="POST" action="l_login.php">

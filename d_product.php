@@ -6,7 +6,7 @@
 	$code = $_GET['id'];
     include 'database.php';
 
-
+    //Here delete products where get id is similar at id of product
     $sentence = $bd->prepare("DELETE FROM products WHERE id = ?;");
     $result = $sentence->execute([$code]);
 

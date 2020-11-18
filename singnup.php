@@ -9,6 +9,7 @@
 <body>
     <h5 id="firstText"><?php require "partials/header.php"; ?></h5>
     <h1 id="firstText">SINGNUP</h1>
+    <!--with this form the user can singnup-->
     <form  method="POST" action="l_singnup.php">
         <input id="firstText" type="text" name="name" placeholder="insert your name">
         <input id="firstText" type="text" name="lastName" placeholder="insert your lastName">

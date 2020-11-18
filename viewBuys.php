@@ -2,6 +2,7 @@
     error_reporting(E_ERROR);
     session_start();
     require "database.php";
+    // in  this part select final buy for show a client
     $id_client=$_SESSION['id'];
     $sentence = $bd->query("SELECT *FROM purchase WHERE id_client = $id_client;");
     $buy = $sentence->fetchAll(PDO::FETCH_OBJ);;
@@ -18,6 +19,7 @@
 <body>
 <center>
     <table id="firstText">
+    
         <tr>
             <th>id</th>
             <th>Code</th>

@@ -3,6 +3,7 @@
     session_start();
     require "database.php";
     $id_client=$_SESSION['id'];
+    //here select products purchased for the client
     $sentence = $bd->query("SELECT sum(quantity) as total_of_products,sum(quantity*products.Precio) as total
     from car INNER JOIN products
     on id_product=products.id and  id_client=$id_client;");
@@ -20,6 +21,7 @@
 <body>
     <center><h1>Purchase order</h1></center>
     <center>
+    <!--here show products purchase for the client-->
         <table id="firstText"> 
             <tr>
                 <th>

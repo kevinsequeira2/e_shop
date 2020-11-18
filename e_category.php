@@ -6,7 +6,7 @@
 	
 	include 'database.php';
 	$id = $_GET['id'];
-
+	//In this part select category in the database for show category in the visual part
 	$sentence = $bd->prepare("SELECT * FROM category WHERE id = ?;");
 	$sentence->execute([$id]);
 	$category = $sentence->fetch(PDO::FETCH_OBJ);
@@ -21,6 +21,7 @@
 </head>
 <body>
 	<center>
+		<!--With this form you can edit category-->
 		<h3 id="firstText">Edit category:</h3>
 		<form method="POST" action="e_categoryProcess.php">
 			<table id="firstText">

@@ -1,5 +1,6 @@
 <?php
     require "database.php";
+    //script for send mail
         if ($argc <= 1)
         {
         echo "Arguments missing...\n";

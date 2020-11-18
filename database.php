@@ -1,4 +1,5 @@
 <?php  
+	// In this part is realized the connection of the database
 	$password = '12345';
 	$user = 'kevin';
 	$database= 'e_shop';

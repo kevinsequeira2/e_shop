@@ -1,6 +1,6 @@
 <?php  
 	require 'database.php';
-    
+    //here select category for show  in the form
     $sentence2 = $bd->query("SELECT * FROM category;");
 	$category2 = $sentence2->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -15,6 +15,7 @@
 <body>
 
 	<center>
+        <!--there are categories getted of the database-->
         <h1>Categories</h1>
         <table id="firstText">
             <tr>
@@ -38,6 +39,7 @@
         <button id="firstText"><b><a href="welcomeAdmin.php">Ready</a></b></button>
     </center>
     <center>
+    <!--this is a form to insert category-->
         <h3>Insert category:</h3>
             <form method="POST" action="i_category.php">
                 <table id="firstText">

@@ -6,7 +6,7 @@
 	
 	include 'database.php';
 	$id = $_GET['id'];
-
+	//In this part select products for show in one table
 	$sentence = $bd->prepare("SELECT * FROM products WHERE id = ?;");
 	$sentence->execute([$id]);
 	$product = $sentence->fetch(PDO::FETCH_OBJ);
@@ -22,6 +22,7 @@
 <body>
 	<center>
 		<h3 id="firstText">Edit product:</h3>
+		<!--in this part you can edit product for update-->
 		<form method="POST" enctype="multipart/form-data" action="e_productProcess.php">
 			<table id="firstText">
 				<tr>
